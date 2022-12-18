@@ -87,43 +87,7 @@ var finances = [
 ['Feb-2017', 671099]
 ];
 
-
-// START TEST SECTION 1 : https://bobbyhadz.com/blog/javascript-get-sum-of-array-of-numbers
-
-const arr = [5,15,45];
-
-const sum1 = arr.reduce((accumulator, value) => {
-    return accumulator + value;
-
-},0);
-
-console.log("test1: " + sum1);
-
-// END TEST SECTION 1 
-
-// START TEST SECTION 2
-var test2 = [5, 15, 45];
-let sum2 =0;
-
-for (i=0; i <test2.length; i++) {
-    sum2 += test2[i]
-}
-
-console.log("test2: " + sum2);
-
-// END TEST SECTION 2
-
-// START TEST SECTION 3
-var test3 = [["v1",5],["v2",15],["v3",46]];
-let sum3 = 0;
-
-for (i=0; i<test3.length; i++) {
-    sum3 += test3[i][1];
-} 
-console.log("test3: " + sum3)
-
-// END TEST SECTION 3
-
+//-----------------------------------------------------------
 
 // Heading / Structure:
 console.log("Fiancial Analysis \n ----------------------------")
@@ -133,16 +97,43 @@ console.log("Total Months: " + finances.length);
 
 
 // The net total amount of Profit/Losses over the entire period.
+//access second value of 2D array = finances[i][1]
+let totalPL = 0;
 
-//access second value of 2-d array = finances[i][1]
+for (i=0; i<finances.length; i++) {
+    totalPL += finances[i][1];
+} 
+console.log("Total Profit/Losses: $" + totalPL);
+
+
+// The average of the changes in Profit/Losses over the entire period.
+// calculate each change by subtracting the previous month from this month
+//      You will need to track what the total change in profits is from month to month and then find the average.
+//      (Total/total number of changes) ===> total change/(months - 1)
+//      maybe put all the changes into an array? using .push(...) ?
 
 
 
-// var totalPL = i=0; i<finances.length;  i+1;
 
-// for (var i=0; i<5; i+1) {
-//     console.log("Total: " + totalPL);
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
