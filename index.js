@@ -112,6 +112,16 @@ console.log("Total Profit/Losses: $" + totalPL);
 //      (Total/total number of changes) ===> total change/(months - 1)
 //      maybe put all the changes into an array? using .push(...) ?
 
+// (var[1][1]-var[0][1]); (var[2][1]-var[1][1]) --> push results to a new array "Jan to Feb 2016"
+
+
+// START TEST SECTION
+for (var i=0; i<finances.length;i++) {
+    (finances[i++][1] -= finances[i][1]); 
+
+}
+
+// END TEST SECTION
 
 
 
