@@ -108,18 +108,28 @@ console.log("Total Profit/Losses: $" + totalPL);
 
 // The average of the changes in Profit/Losses over the entire period.
 // calculate each change by subtracting the previous month from this month
-//      You will need to track what the total change in profits is from month to month and then find the average.
 //      (Total/total number of changes) ===> total change/(months - 1)
-//      maybe put all the changes into an array? using .push(...) ?
-
-// (var[1][1]-var[0][1]); (var[2][1]-var[1][1]) --> push results to a new array "Jan to Feb 2016"
 
 
 // START TEST SECTION
-for (var i=0; i<finances.length;i++) {
-    (finances[i++][1] -= finances[i][1]); 
+var financesChange = []
+var avChange = 0
 
+
+// Calculation of change in profits month to month
+for (let x=0; x<finances.length-1; x+1) {
+    financesChange.push(finances[x][1] - finances[++x][1]); 
 }
+console.log(financesChange);
+
+
+// Calculation average change => Total change / months-1
+for (y=0; y<finances.length-1; y++) {
+    avChange += financesChange[y];
+}
+
+console.log(avChange/financesChange);
+
 
 // END TEST SECTION
 
@@ -173,8 +183,8 @@ for (var i=0; i<finances.length;i++) {
 // console output format!
 // Financial Analysis
 // ----------------------------
-// Total Months: 25
-// Total: $2561231
+// Total Months: 86
+// Total: $38382578
 // Average  Change: $-2315.12
 // Greatest Increase in Profits: Feb-2012 ($1926159)
 // Greatest Decrease in Profits: Sep-2013 ($-2196167)
