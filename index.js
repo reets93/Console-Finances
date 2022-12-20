@@ -92,6 +92,7 @@ var finances = [
 // TITLE
 console.log("Fiancial Analysis \n ----------------------------")
 
+
 // TOTAL NUMBER OF MONTHS 
 console.log("Total Months: " + finances.length);
 
@@ -105,26 +106,29 @@ for (i=0; i<finances.length; i++) {
 console.log("Total Profit/Losses: $" + totalPL);
 
 
-// AVERAGE OF CHANGES IN PROFIT/LOSS OVER ENTIRE PERIODThe average of the changes in Profit/Losses over the entire period.
+// AVERAGE OF CHANGES IN PROFIT/LOSS OVER ENTIRE PERIOD  The average of the changes in Profit/Losses over the entire period.
 
 var financesChange = []
 var avChange = 0
 
+
 // Calculation of change in profits month to month
 for (let x=0; x<finances.length-1; x+1) {
-    // financesChange.push((finances[x][0] + " to " + finances[x+1][0] + ", $") + (finances[x][1] - finances[++x][1])); 
     financesChange.push(finances[x][1] - finances[++x][1]); 
-
 }
-// console.log(financesChange)
+
 
 // Calculation of average change => Total change / months-1
 for (y=0; y<finances.length-1; y++) {
-    avChange += financesChange[y];
+    avChange -= financesChange[y];
 }
 
 // console.log(avChange);
-console.log("Average Change: $" + avChange / financesChange.length);
+var averageChange = avChange / financesChange.length;
+averageChange = averageChange.toFixed(2);
+
+console.log("Average Change: $" + averageChange);
+
 
 
 // The greatest increase in profits (date and amount) over the entire period.
