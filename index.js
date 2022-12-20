@@ -89,15 +89,14 @@ var finances = [
 
 //-----------------------------------------------------------
 
-// Heading / Structure:
+// TITLE
 console.log("Fiancial Analysis \n ----------------------------")
 
-// The total number of months included in the dataset.
+// TOTAL NUMBER OF MONTHS 
 console.log("Total Months: " + finances.length);
 
 
-// The net total amount of Profit/Losses over the entire period.
-//access second value of 2D array = finances[i][1]
+// NET TOTAL AMOUNT OF PROFIT/LOSSES OVER ENTIRE PERIOD
 let totalPL = 0;
 
 for (i=0; i<finances.length; i++) {
@@ -106,34 +105,27 @@ for (i=0; i<finances.length; i++) {
 console.log("Total Profit/Losses: $" + totalPL);
 
 
-// The average of the changes in Profit/Losses over the entire period.
-// calculate each change by subtracting the previous month from this month
-//      (Total/total number of changes) ===> total change/(months - 1)
+// AVERAGE OF CHANGES IN PROFIT/LOSS OVER ENTIRE PERIODThe average of the changes in Profit/Losses over the entire period.
 
-
-// START TEST SECTION
 var financesChange = []
 var avChange = 0
-
 
 // Calculation of change in profits month to month
 for (let x=0; x<finances.length-1; x+1) {
     financesChange.push(finances[x][1] - finances[++x][1]); 
 }
-console.log(financesChange);
 
-
-// Calculation average change => Total change / months-1
+// Calculation of average change => Total change / months-1
 for (y=0; y<finances.length-1; y++) {
     avChange += financesChange[y];
 }
-
-console.log(avChange/financesChange);
-
-
-// END TEST SECTION
+console.log("Average Change: $" + avChange / financesChange.length);
 
 
+// The greatest increase in profits (date and amount) over the entire period.
+// start with 0
+//   check the last increase. If it's bigger than 0, keep track of the new biggest one.
+//   in a loop
 
 
 
