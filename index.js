@@ -112,13 +112,18 @@ var avChange = 0
 
 // Calculation of change in profits month to month
 for (let x=0; x<finances.length-1; x+1) {
+    // financesChange.push((finances[x][0] + " to " + finances[x+1][0] + ", $") + (finances[x][1] - finances[++x][1])); 
     financesChange.push(finances[x][1] - finances[++x][1]); 
+
 }
+// console.log(financesChange)
 
 // Calculation of average change => Total change / months-1
 for (y=0; y<finances.length-1; y++) {
     avChange += financesChange[y];
 }
+
+// console.log(avChange);
 console.log("Average Change: $" + avChange / financesChange.length);
 
 
