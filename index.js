@@ -90,11 +90,13 @@ var finances = [
 //-----------------------------------------------------------
 
 // TITLE
-console.log("Fiancial Analysis \n ----------------------------")
+console.log("Financial Analysis \n ----------------------------")
+
 
 
 // TOTAL NUMBER OF MONTHS 
 console.log("Total Months: " + finances.length);
+
 
 
 // NET TOTAL AMOUNT OF PROFIT/LOSSES OVER ENTIRE PERIOD
@@ -106,29 +108,25 @@ for (i=0; i<finances.length; i++) {
 console.log("Total Profit/Losses: $" + totalPL);
 
 
-// AVERAGE OF CHANGES IN PROFIT/LOSS OVER ENTIRE PERIOD  The average of the changes in Profit/Losses over the entire period.
 
+// AVERAGE OF CHANGES IN PROFIT/LOSS OVER ENTIRE PERIOD  The average of the changes in Profit/Losses over the entire period.
 var financesChange = []
 var avChange = 0
 
-
 // Calculation of change in profits month to month
 for (let x=0; x<finances.length-1; x+1) {
-    financesChange.push(finances[x][1] - finances[++x][1]); 
+    financesChange.push(finances[x++][1] - finances[x][1]);  //if stops working, revert back to x - ++x
 }
-
 
 // Calculation of average change => Total change / months-1
 for (y=0; y<finances.length-1; y++) {
     avChange -= financesChange[y];
 }
 
-// console.log(avChange);
 var averageChange = avChange / financesChange.length;
 averageChange = averageChange.toFixed(2);
 
 console.log("Average Change: $" + averageChange);
-
 
 
 // The greatest increase in profits (date and amount) over the entire period.
@@ -137,12 +135,43 @@ console.log("Average Change: $" + averageChange);
 //   in a loop
 
 
+// Combine new array with time periods 
+var updatedtimeperiod = []
+var monthAndChange = []
+
+for(let i=0; i<finances.length-1; i++) {
+    updatedtimeperiod.push(finances[i][0] + " to " + finances[i+1][0])
+}
+
+for(let i=0; i<financesChange.length; i++) {
+    monthAndChange.push([updatedtimeperiod[i]]+ ": $"+[financesChange[i]])
+}
+// console.log(monthAndChange)
+
+// Greatest increase in profits
+var greatest = 0
+
+for(i=0; i<financesChange.length; i++){
+    if(greatest>financesChange[i]) {
+        greatest=financesChange[i]
+    }
+}
+
+financesChange.indexOf(greatest)
+console.log("Greatest Increase in profits: $" + monthAndChange[(financesChange.indexOf(greatest))])
 
 
+// Greatest decrease in profits
+var least = 0
 
+for(i=0; i<financesChange.length; i++){
+    if(least<financesChange[i]) {
+        least=financesChange[i]
+    }
+}
 
-
-
+financesChange.indexOf(least)
+console.log("Greatest Decrease in profits: $" + monthAndChange[(financesChange.indexOf(least))]) // figure out how to display an index based on the "least" index given above. 
 
 
 
