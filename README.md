@@ -5,7 +5,7 @@ This was built to practice using Javascript, and understand how to use different
 
 
 ## Usage
-Link to deployed page: 
+Link to deployed page: https://reets93.github.io/Console-Finances/ 
 
 Open the console to see the Financial Analysis in action.
 
