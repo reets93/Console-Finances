@@ -5,9 +5,13 @@ This was built to practice using Javascript, and understand how to use different
 
 
 ## Usage
+Link to deployed page: 
+
 Open the console to see the Financial Analysis in action.
 
 ![alt text](./M4-screenshot.png)
+
+
 
 
 ## Credits
